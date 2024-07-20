@@ -17,3 +17,7 @@
 ## 1.0.4
 
 - Dart format
+
+## 1.0.5
+
+- Updated README.md
