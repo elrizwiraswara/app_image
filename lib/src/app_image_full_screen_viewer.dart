@@ -34,7 +34,8 @@ class AppImageFullScreenViewer extends StatefulWidget {
   });
 
   @override
-  State<AppImageFullScreenViewer> createState() => _AppImageFullScreenViewerState();
+  State<AppImageFullScreenViewer> createState() =>
+      _AppImageFullScreenViewerState();
 }
 
 class _AppImageFullScreenViewerState extends State<AppImageFullScreenViewer> {

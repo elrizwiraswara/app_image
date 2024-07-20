@@ -100,14 +100,17 @@ class _AppImageState extends State<AppImage> {
 
   /// Handles the tap event to open the full-screen image viewer.
   void _onTapImage() {
-    if ((widget.allImages == null || widget.allImages!.isEmpty) && widget.image == '') {
+    if ((widget.allImages == null || widget.allImages!.isEmpty) &&
+        widget.image == '') {
       return;
     }
 
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => AppImageFullScreenViewer(
-          initialIndex: (widget.allImages?.isNotEmpty ?? false) ? widget.allImages!.indexOf(widget.image) : 0,
+          initialIndex: (widget.allImages?.isNotEmpty ?? false)
+              ? widget.allImages!.indexOf(widget.image)
+              : 0,
           images: widget.allImages ?? [widget.image],
           fadeInDuration: widget.fadeInDuration,
           fadeInCurve: widget.fadeInCurve,

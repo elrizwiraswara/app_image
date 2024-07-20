@@ -91,7 +91,8 @@ class AppImageWidget extends StatelessWidget {
       fit: fit,
       gaplessPlayback: true,
       loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded == loadingProgress?.expectedTotalBytes) {
+        if (loadingProgress?.cumulativeBytesLoaded ==
+            loadingProgress?.expectedTotalBytes) {
           return FadeInTransition(
             child: child,
             fadeInDuration: fadeInDuration,
@@ -116,7 +117,8 @@ class AppImageWidget extends StatelessWidget {
       fit: fit,
       gaplessPlayback: true,
       loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded == loadingProgress?.expectedTotalBytes) {
+        if (loadingProgress?.cumulativeBytesLoaded ==
+            loadingProgress?.expectedTotalBytes) {
           return FadeInTransition(
             child: child,
             fadeInDuration: fadeInDuration,
@@ -141,7 +143,8 @@ class AppImageWidget extends StatelessWidget {
       fit: fit,
       gaplessPlayback: true,
       loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded == loadingProgress?.expectedTotalBytes) {
+        if (loadingProgress?.cumulativeBytesLoaded ==
+            loadingProgress?.expectedTotalBytes) {
           return FadeInTransition(
             child: child,
             fadeInDuration: fadeInDuration,
@@ -166,7 +169,8 @@ class AppImageWidget extends StatelessWidget {
       fit: fit,
       gaplessPlayback: true,
       loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded == loadingProgress?.expectedTotalBytes) {
+        if (loadingProgress?.cumulativeBytesLoaded ==
+            loadingProgress?.expectedTotalBytes) {
           return FadeInTransition(
             child: child,
             fadeInDuration: fadeInDuration,
