@@ -1,6 +1,6 @@
 name: app_image
 description: A complete package for developers looking to implement advanced image display features in their Flutter applications with minimal effort.
-version: 1.0.0
+version: 1.0.1
 repository: https://github.com/elrizwiraswara/app_image
 
 environment:
@@ -15,3 +15,17 @@ dependencies:
 dev_dependencies:
   lints: ^4.0.0
   test: ^1.24.0
+  
+platforms:
+  android:
+  ios:
+  macos:
+  web:
+  windows:
+
+topics:
+  - image
+  - image-viewer
+  - image-widget
+  - flutter-image
+  - fullscreen-images

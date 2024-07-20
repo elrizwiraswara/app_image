@@ -2,7 +2,7 @@
 
 `app_image` is a versatile Flutter package designed to simplify image handling within your applications. It provides a highly customizable `AppImage` widget that supports various image sources, including network URLs, asset paths, file paths, and memory images. This package features fade-in animations, custom placeholder and error widgets, full-screen image viewing, SVG support, and pre-caching capabilities.
 
-<img src="example.gif" alt="Sample">
+<img src="https://github.com/elrizwiraswara/app_image/blob/main/example.gif?raw=true" alt="Sample">
 
 ## Features
 
