@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
         body: Center(
           child: AppImage(
             image: 'https://example.com/image.jpg',
-            placeholder: 'assets/placeholder.png',
+            placeHolderWidget: CircularProgressIndicator(),
             errorWidget: Icon(Icons.error),
             fadeInDuration: Duration(milliseconds: 300),
             fadeInCurve: Curves.easeIn,
