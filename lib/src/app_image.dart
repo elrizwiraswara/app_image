@@ -12,7 +12,6 @@ import 'img_provider.dart';
 /// and optional full-screen view.
 class AppImage extends StatefulWidget {
   final dynamic image;
-  final String? placeholder;
   final List<dynamic>? allImages;
   final ImgProvider? imgProvider;
   final BoxFit fit;
@@ -32,7 +31,6 @@ class AppImage extends StatefulWidget {
   ///
   /// Parameters:
   /// - [image] is the source of the image, which can be a URL, asset path, file path, or memory.
-  /// - [placeholder] is a placeholder image to display while loading.
   /// - [allImages] is a list of images to display in full-screen view.
   /// - [imgProvider] specifies the image provider type.
   /// - [fit] determines how the image should be inscribed into the widget.
@@ -50,7 +48,6 @@ class AppImage extends StatefulWidget {
   const AppImage({
     super.key,
     required this.image,
-    this.placeholder,
     this.allImages,
     this.imgProvider,
     this.fit = BoxFit.cover,

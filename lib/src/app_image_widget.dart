@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'fade_in_out_transition.dart';
+import 'fade_in_transition.dart';
 import 'img_provider.dart';
 
 /// A widget that displays an image from various sources, such as network, asset,
@@ -114,6 +114,7 @@ class AppImageWidget extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
+      gaplessPlayback: true,
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress?.cumulativeBytesLoaded == loadingProgress?.expectedTotalBytes) {
           return FadeInTransition(
@@ -138,6 +139,7 @@ class AppImageWidget extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
+      gaplessPlayback: true,
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress?.cumulativeBytesLoaded == loadingProgress?.expectedTotalBytes) {
           return FadeInTransition(
@@ -162,6 +164,7 @@ class AppImageWidget extends StatelessWidget {
       width: width,
       height: height,
       fit: fit,
+      gaplessPlayback: true,
       loadingBuilder: (context, child, loadingProgress) {
         if (loadingProgress?.cumulativeBytesLoaded == loadingProgress?.expectedTotalBytes) {
           return FadeInTransition(
