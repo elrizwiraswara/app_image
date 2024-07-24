@@ -25,3 +25,7 @@
 ## 1.0.6
 
 - Updated image indexing
+
+## 1.0.6
+
+- Updated README.md
