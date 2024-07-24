@@ -155,7 +155,8 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 200,
               height: 200,
               backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
-              border: Border.all(width: 8, color: Theme.of(context).colorScheme.primary),
+              border: Border.all(
+                  width: 8, color: Theme.of(context).colorScheme.primary),
               borderRadius: BorderRadius.circular(18),
               enableFullScreenView: true,
             ),
@@ -166,8 +167,10 @@ class _MyHomePageState extends State<MyHomePage> {
               height: 200,
               backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
               border: Border(
-                left: BorderSide(width: 8, color: Theme.of(context).colorScheme.primary),
-                right: BorderSide(width: 8, color: Theme.of(context).colorScheme.primary),
+                left: BorderSide(
+                    width: 8, color: Theme.of(context).colorScheme.primary),
+                right: BorderSide(
+                    width: 8, color: Theme.of(context).colorScheme.primary),
               ),
               borderRadius: BorderRadius.circular(18),
               enableFullScreenView: true,
@@ -178,8 +181,11 @@ class _MyHomePageState extends State<MyHomePage> {
               width: 300,
               height: 200,
               backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
-              border: Border(left: BorderSide(width: 8, color: Theme.of(context).colorScheme.primary)),
-              borderRadius: const BorderRadius.only(topRight: Radius.circular(54)),
+              border: Border(
+                  left: BorderSide(
+                      width: 8, color: Theme.of(context).colorScheme.primary)),
+              borderRadius:
+                  const BorderRadius.only(topRight: Radius.circular(54)),
               enableFullScreenView: true,
               fadeInCurve: Curves.easeInOut,
               fadeInDuration: const Duration(seconds: 3),
