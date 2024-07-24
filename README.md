@@ -20,7 +20,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  app_image: ^1.0.5
+  app_image: ^1.0.6
 ```
 
 Then run `flutter pub get` to install the package.
