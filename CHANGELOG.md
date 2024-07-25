@@ -29,3 +29,7 @@
 ## 1.0.7
 
 - Updated README.md
+
+## 1.0.8
+
+- Improved pub score
