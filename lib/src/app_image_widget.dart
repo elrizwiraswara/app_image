@@ -47,8 +47,6 @@ class AppImageWidget extends StatelessWidget {
     // Determine the type of image provider based on the image source.
     ImgProvider? provider = getImageProvider(image);
 
-    print("$provider $image");
-
     // Display the appropriate image widget based on the provider type.
     if (provider == ImgProvider.networkImage) {
       return _networkImage();

@@ -1,5 +1,6 @@
 import 'package:app_image/app_image.dart';
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
 
   String assetImage = 'assets/elriz-logo.jpg';
-  String? fileImage;
+  dynamic fileImage;
   Uint8List? memoryImage;
   String svgImageNetwork = 'https://svgur.com/i/18Q4.svg';
   String? svgImageFile;
@@ -233,7 +234,11 @@ class _MyHomePageState extends State<MyHomePage> {
             allowedExtensions: ['jpg', 'jpeg', 'png'],
           );
 
-          fileImage = result?.files.firstOrNull?.path;
+          // file image is not supported on the web platform
+          // use bytes instead
+          fileImage = kIsWeb
+              ? result?.files.firstOrNull?.bytes
+              : result?.files.firstOrNull?.path;
           setState(() {});
         },
         child: Column(
