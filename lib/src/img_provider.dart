@@ -1,5 +1,6 @@
 import 'dart:io';
-import 'dart:typed_data';
+
+import 'package:flutter/foundation.dart';
 
 /// Enum representing different types of image providers.
 enum ImgProvider {
@@ -37,11 +38,19 @@ ImgProvider? getImageProvider(dynamic image) {
       }
     }
 
-    if (_isFileExists(image)) {
+    if (!kIsWeb) {
+      if (_isFileExists(image)) {
+        if (image.endsWith('.svg')) {
+          return ImgProvider.svgImageFile;
+        } else {
+          return ImgProvider.fileImage;
+        }
+      }
+    } else {
       if (image.endsWith('.svg')) {
-        return ImgProvider.svgImageFile;
+        return ImgProvider.svgImageNetwork;
       } else {
-        return ImgProvider.fileImage;
+        return ImgProvider.networkImage;
       }
     }
 
@@ -59,6 +68,7 @@ ImgProvider? getImageProvider(dynamic image) {
 ///
 /// Returns true if the file exists, false otherwise.
 bool _isFileExists(String path) {
+  if (kIsWeb) return false;
   final directory = File(path);
   return directory.existsSync();
 }
