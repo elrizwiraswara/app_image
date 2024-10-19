@@ -1,24 +1,12 @@
-## 1.0.0
+## 1.0.9
 
-- Initial release.
+- Fix unsupported File on web
 
-## 1.0.1
+## 1.0.8
 
-- Updated README.md
+- Improved pub score
 
-## 1.0.2
-
-- Removed unnecessary codes
-
-## 1.0.3
-
-- Updated README.md
-
-## 1.0.4
-
-- Dart format
-
-## 1.0.5
+## 1.0.7
 
 - Updated README.md
 
@@ -26,10 +14,34 @@
 
 - Updated image indexing
 
-## 1.0.7
+## 1.0.5
 
 - Updated README.md
 
-## 1.0.8
+## 1.0.4
 
-- Improved pub score
+- Dart format
+
+## 1.0.3
+
+- Updated README.md
+
+## 1.0.2
+
+- Removed unnecessary codes
+
+## 1.0.1
+
+- Updated README.md
+
+## 1.0.0
+
+- Initial release.
+
+
+
+
+
+
+
+
