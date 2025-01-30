@@ -1,3 +1,8 @@
+## 1.0.10
+
+- Upgrade `flutter_svg` version to `^2.0.17`
+- Update README.md
+
 ## 1.0.9
 
 - Fix unsupported File on web
