@@ -20,7 +20,7 @@ Add the following to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  app_image: ^1.0.9
+  app_image: any  # Replace with the latest version
 ```
 
 Then run `flutter pub get` to install the package.
@@ -28,7 +28,7 @@ Then run `flutter pub get` to install the package.
 ## Usage
 ### Basic Usage
 
-```
+```dart
 import 'package:app_image/app_image.dart';
 import 'package:flutter/material.dart';
 
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
 ### Full-Screen Viewer
 To enable full-screen viewing of images:
 
-```
+```dart
 AppImage(
   image: 'https://example.com/image.jpg',
   enableFullScreenView: true,
@@ -71,7 +71,7 @@ AppImage(
 ### Custom Placeholder and Error Widgets
 You can customize the placeholder and error widgets:
 
-```
+```dart
 AppImage(
   image: 'https://example.com/image.jpg',
   placeHolderWidget: CircularProgressIndicator(),
@@ -82,7 +82,7 @@ AppImage(
 ### SVG Support
 To display SVG images:
 
-```
+```dart
 AppImage(
   image: 'assets/image.svg',
 );
@@ -93,7 +93,3 @@ Check out the [example](example) directory for a complete sample app demonstrati
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Support
-
-<a href="https://trakteer.id/elrizwiraswara/tip" target="_blank"><img id="wse-buttons-preview" src="https://cdn.trakteer.id/images/embed/trbtn-red-6.png?date=18-11-2023" height="40" style="border:0px;height:40px;margin-top:14px" alt="Trakteer Saya"></a>
