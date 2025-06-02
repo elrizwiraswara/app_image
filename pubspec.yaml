@@ -1,6 +1,6 @@
 name: app_image
 description: A complete package for developers looking to implement advanced image display features in their Flutter applications with minimal effort.
-version: 1.0.10
+version: 1.0.11
 repository: https://github.com/elrizwiraswara/app_image
 
 environment:
@@ -10,7 +10,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^2.0.17
+  flutter_svg: ^2.1.0
 
 dev_dependencies:
   lints: ^4.0.0
