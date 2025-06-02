@@ -1,3 +1,8 @@
+## 1.0.11
+
+- Upgrade `flutter_svg` version to `^2.1.0`
+- Fix File type conflict on web
+
 ## 1.0.10
 
 - Upgrade `flutter_svg` version to `^2.0.17`
