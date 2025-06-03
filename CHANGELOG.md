@@ -1,3 +1,7 @@
+## 1.0.12
+
+- Add optional context for full screen view
+
 ## 1.0.11
 
 - Upgrade `flutter_svg` version to `^2.1.0`

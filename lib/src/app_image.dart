@@ -26,6 +26,7 @@ class AppImage extends StatefulWidget {
   final Color? backgroundColor;
   final BoxBorder? border;
   final BorderRadius? borderRadius;
+  final BuildContext? context;
 
   /// Constructor for the AppImage widget.
   ///
@@ -45,6 +46,7 @@ class AppImage extends StatefulWidget {
   /// - [backgroundColor] specifies the background color of the image container.
   /// - [border] specifies the border of the image container.
   /// - [borderRadius] specifies the border radius of the image container.
+  /// - [context] specifies the context of full screen view.
   const AppImage({
     super.key,
     required this.image,
@@ -62,6 +64,7 @@ class AppImage extends StatefulWidget {
     this.backgroundColor,
     this.border,
     this.borderRadius,
+    this.context,
   }) : assert(image == null || image is String || image is Uint8List);
 
   @override
@@ -105,7 +108,7 @@ class _AppImageState extends State<AppImage> {
       return;
     }
 
-    Navigator.of(context).push(
+    Navigator.of(widget.context ?? context).push(
       MaterialPageRoute(
         builder: (_) => AppImageFullScreenViewer(
           initialIndex: (widget.allImages?.isNotEmpty ?? false) &&
