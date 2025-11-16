@@ -1,8 +1,8 @@
-import 'dart:io' show File;
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import 'app_image_widget_io.dart'
+    if (dart.library.js_interop) 'app_image_widget_web.dart';
 import 'fade_in_transition.dart';
 import 'img_provider.dart';
 
@@ -134,27 +134,15 @@ class AppImageWidget extends StatelessWidget {
 
   // Widget for displaying a file image.
   Widget _fileImage() {
-    return Image(
-      image: FileImage(File(image)),
+    return buildFileImage(
+      image: image,
       width: width,
       height: height,
       fit: fit,
-      gaplessPlayback: true,
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded ==
-            loadingProgress?.expectedTotalBytes) {
-          return FadeInTransition(
-            child: child,
-            fadeInDuration: fadeInDuration,
-            fadeInCurve: fadeInCurve,
-          );
-        }
-
-        return _placeHolderWidget();
-      },
-      errorBuilder: (context, object, stack) {
-        return _errorWidget();
-      },
+      fadeInDuration: fadeInDuration,
+      fadeInCurve: fadeInCurve,
+      placeHolderBuilder: _placeHolderWidget,
+      errorBuilder: _errorWidget,
     );
   }
 
@@ -199,14 +187,12 @@ class AppImageWidget extends StatelessWidget {
 
   // Widget for displaying a file SVG image.
   Widget _svgImageFile() {
-    return SvgPicture.file(
-      File(image),
+    return buildSvgFileImage(
+      image: image,
       width: width,
       height: height,
       fit: fit,
-      placeholderBuilder: (_) {
-        return _placeHolderWidget();
-      },
+      placeHolderBuilder: _placeHolderWidget,
     );
   }
 
