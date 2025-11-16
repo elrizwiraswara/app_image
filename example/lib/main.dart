@@ -329,6 +329,7 @@ class _MyHomePageState extends State<MyHomePage> {
           borderRadius: BorderRadius.circular(18),
           enableFullScreenView: true,
         ),
+
       ],
     );
   }

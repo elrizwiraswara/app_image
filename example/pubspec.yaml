@@ -32,7 +32,7 @@ dependencies:
     sdk: flutter
   app_image:
     path: ../../app_image
-  file_picker: ^8.0.6
+  file_picker: ^10.3.6
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -48,7 +48,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^6.0.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
