@@ -1,3 +1,8 @@
+## 1.0.13
+
+- Fix File type conflict on web
+- Upgrade `flutter_svg` version to `^2.2.2`
+
 ## 1.0.12
 
 - Add optional context for full screen view
