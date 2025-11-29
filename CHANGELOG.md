@@ -1,3 +1,7 @@
+## 1.0.14
+
+- Updated README.md
+
 ## 1.0.13
 
 - Fix File type conflict on web
