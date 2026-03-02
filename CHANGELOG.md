@@ -1,3 +1,9 @@
+## 1.0.15
+
+- Updated platform support
+- Upgrade `flutter_svg` version to `^2.2.3`
+- Updates minimum supported SDK version to Flutter 3.32/Dart 3.8.
+
 ## 1.0.14
 
 - Updated README.md
@@ -60,11 +66,3 @@
 ## 1.0.0
 
 - Initial release.
-
-
-
-
-
-
-
-
