@@ -44,6 +44,10 @@ class AppImageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (image == null || image == '') {
+      return _placeHolderWidget();
+    }
+
     // Determine the type of image provider based on the image source.
     ImgProvider? provider = getImageProvider(image);
 
@@ -215,7 +219,8 @@ class AppImageWidget extends StatelessWidget {
       builder: (context, constraints) {
         // Calculate icon size based on the smaller of parent width or height
         double size = (constraints.maxWidth < constraints.maxHeight)
-            ? constraints.maxWidth * 0.2 // 20% of the smaller dimension
+            ? constraints.maxWidth *
+                  0.2 // 20% of the smaller dimension
             : constraints.maxHeight * 0.2;
 
         size = size > 50 ? 50 : size;
@@ -244,7 +249,8 @@ class AppImageWidget extends StatelessWidget {
       builder: (context, constraints) {
         // Calculate icon size based on the smaller of parent width or height
         double size = (constraints.maxWidth < constraints.maxHeight)
-            ? constraints.maxWidth * 0.2 // 20% of the smaller dimension
+            ? constraints.maxWidth *
+                  0.2 // 20% of the smaller dimension
             : constraints.maxHeight * 0.2;
 
         size = size > 50 ? 50 : size;

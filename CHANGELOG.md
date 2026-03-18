@@ -1,3 +1,7 @@
+## 1.0.16
+
+- Return the placeholder widget when the image path is null or empty.
+
 ## 1.0.15
 
 - Updated platform support
