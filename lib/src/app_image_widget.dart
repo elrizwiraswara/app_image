@@ -215,6 +215,10 @@ class AppImageWidget extends StatelessWidget {
 
   // Widget to display while the image is loading.
   Widget _placeHolderWidget() {
+    if (placeHolderWidget != null) {
+      return placeHolderWidget!;
+    }
+
     return LayoutBuilder(
       builder: (context, constraints) {
         // Calculate icon size based on the smaller of parent width or height
