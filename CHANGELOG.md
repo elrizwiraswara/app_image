@@ -1,3 +1,7 @@
+## 1.0.17
+
+- Fix `placeHolderWidget` parameter not being used in `AppImageWidget`
+
 ## 1.0.16
 
 - Return the placeholder widget when the image path is null or empty.
