@@ -62,9 +62,6 @@ class FadeInTransitionState extends State<FadeInTransition>
       return widget.child;
     }
 
-    return FadeTransition(
-      opacity: _fadeInAnimation,
-      child: widget.child,
-    );
+    return FadeTransition(opacity: _fadeInAnimation, child: widget.child);
   }
 }

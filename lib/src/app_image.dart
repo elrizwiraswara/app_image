@@ -128,7 +128,8 @@ class _AppImageState extends State<AppImage> {
     Navigator.of(widget.context ?? context).push(
       MaterialPageRoute(
         builder: (_) => AppImageFullScreenViewer(
-          initialIndex: (widget.allImages?.isNotEmpty ?? false) &&
+          initialIndex:
+              (widget.allImages?.isNotEmpty ?? false) &&
                   (widget.allImages?.contains(widget.image) ?? false)
               ? widget.allImages!.indexOf(widget.image)
               : 0,
