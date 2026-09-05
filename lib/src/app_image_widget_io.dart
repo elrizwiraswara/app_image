@@ -3,7 +3,7 @@ import 'dart:io' show File;
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import 'fade_in_transition.dart';
+import 'raster_image.dart';
 
 Widget buildFileImage({
   required String image,
@@ -15,26 +15,15 @@ Widget buildFileImage({
   required Widget Function() placeHolderBuilder,
   required Widget Function() errorBuilder,
 }) {
-  return Image(
+  return buildRasterImage(
     image: FileImage(File(image)),
     width: width,
     height: height,
     fit: fit,
-    gaplessPlayback: true,
-    loadingBuilder: (context, child, loadingProgress) {
-      if (loadingProgress?.cumulativeBytesLoaded ==
-          loadingProgress?.expectedTotalBytes) {
-        return FadeInTransition(
-          child: child,
-          fadeInDuration: fadeInDuration,
-          fadeInCurve: fadeInCurve,
-        );
-      }
-      return placeHolderBuilder();
-    },
-    errorBuilder: (context, object, stack) {
-      return errorBuilder();
-    },
+    fadeInDuration: fadeInDuration,
+    fadeInCurve: fadeInCurve,
+    placeHolderBuilder: placeHolderBuilder,
+    errorBuilder: errorBuilder,
   );
 }
 

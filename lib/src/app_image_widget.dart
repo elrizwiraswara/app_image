@@ -3,8 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 
 import 'app_image_widget_io.dart'
     if (dart.library.js_interop) 'app_image_widget_web.dart';
-import 'fade_in_transition.dart';
 import 'img_provider.dart';
+import 'raster_image.dart';
 
 /// A widget that displays an image from various sources, such as network, asset,
 /// file, memory, or SVG. It includes options for a placeholder, error widget,
@@ -84,59 +84,32 @@ class AppImageWidget extends StatelessWidget {
     return _errorWidget();
   }
 
-  // Widget for displaying a network image.
   Widget _networkImage() {
-    return Image(
+    return buildRasterImage(
       image: NetworkImage(image),
       width: width,
       height: height,
       fit: fit,
-      gaplessPlayback: true,
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded ==
-            loadingProgress?.expectedTotalBytes) {
-          return FadeInTransition(
-            child: child,
-            fadeInDuration: fadeInDuration,
-            fadeInCurve: fadeInCurve,
-          );
-        }
-
-        return _placeHolderWidget();
-      },
-      errorBuilder: (context, object, stack) {
-        return _errorWidget();
-      },
+      fadeInDuration: fadeInDuration,
+      fadeInCurve: fadeInCurve,
+      placeHolderBuilder: _placeHolderWidget,
+      errorBuilder: _errorWidget,
     );
   }
 
-  // Widget for displaying an asset image.
   Widget _assetImage() {
-    return Image(
+    return buildRasterImage(
       image: AssetImage(image),
       width: width,
       height: height,
       fit: fit,
-      gaplessPlayback: true,
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded ==
-            loadingProgress?.expectedTotalBytes) {
-          return FadeInTransition(
-            child: child,
-            fadeInDuration: fadeInDuration,
-            fadeInCurve: fadeInCurve,
-          );
-        }
-
-        return _placeHolderWidget();
-      },
-      errorBuilder: (context, object, stack) {
-        return _errorWidget();
-      },
+      fadeInDuration: fadeInDuration,
+      fadeInCurve: fadeInCurve,
+      placeHolderBuilder: _placeHolderWidget,
+      errorBuilder: _errorWidget,
     );
   }
 
-  // Widget for displaying a file image.
   Widget _fileImage() {
     return buildFileImage(
       image: image,
@@ -150,33 +123,19 @@ class AppImageWidget extends StatelessWidget {
     );
   }
 
-  // Widget for displaying a memory image.
   Widget _memoryImage() {
-    return Image(
+    return buildRasterImage(
       image: MemoryImage(image),
       width: width,
       height: height,
       fit: fit,
-      gaplessPlayback: true,
-      loadingBuilder: (context, child, loadingProgress) {
-        if (loadingProgress?.cumulativeBytesLoaded ==
-            loadingProgress?.expectedTotalBytes) {
-          return FadeInTransition(
-            child: child,
-            fadeInDuration: fadeInDuration,
-            fadeInCurve: fadeInCurve,
-          );
-        }
-
-        return _placeHolderWidget();
-      },
-      errorBuilder: (context, object, stack) {
-        return _errorWidget();
-      },
+      fadeInDuration: fadeInDuration,
+      fadeInCurve: fadeInCurve,
+      placeHolderBuilder: _placeHolderWidget,
+      errorBuilder: _errorWidget,
     );
   }
 
-  // Widget for displaying a network SVG image.
   Widget _svgImageNetwork() {
     return SvgPicture.network(
       image,
@@ -189,7 +148,6 @@ class AppImageWidget extends StatelessWidget {
     );
   }
 
-  // Widget for displaying a file SVG image.
   Widget _svgImageFile() {
     return buildSvgFileImage(
       image: image,
@@ -200,7 +158,6 @@ class AppImageWidget extends StatelessWidget {
     );
   }
 
-  // Widget for displaying an asset SVG image.
   Widget _svgImageAsset() {
     return SvgPicture.asset(
       image,
@@ -213,7 +170,6 @@ class AppImageWidget extends StatelessWidget {
     );
   }
 
-  // Widget to display while the image is loading.
   Widget _placeHolderWidget() {
     if (placeHolderWidget != null) {
       return placeHolderWidget!;
@@ -221,10 +177,8 @@ class AppImageWidget extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Calculate icon size based on the smaller of parent width or height
         double size = (constraints.maxWidth < constraints.maxHeight)
-            ? constraints.maxWidth *
-                  0.2 // 20% of the smaller dimension
+            ? constraints.maxWidth * 0.2
             : constraints.maxHeight * 0.2;
 
         size = size > 50 ? 50 : size;
@@ -243,7 +197,6 @@ class AppImageWidget extends StatelessWidget {
     );
   }
 
-  // Widget to display if an error occurs while loading the image.
   Widget _errorWidget() {
     if (errorWidget != null) {
       return errorWidget!;
@@ -251,10 +204,8 @@ class AppImageWidget extends StatelessWidget {
 
     return LayoutBuilder(
       builder: (context, constraints) {
-        // Calculate icon size based on the smaller of parent width or height
         double size = (constraints.maxWidth < constraints.maxHeight)
-            ? constraints.maxWidth *
-                  0.2 // 20% of the smaller dimension
+            ? constraints.maxWidth * 0.2
             : constraints.maxHeight * 0.2;
 
         size = size > 50 ? 50 : size;

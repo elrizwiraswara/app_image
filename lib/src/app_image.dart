@@ -35,7 +35,7 @@ class AppImage extends StatefulWidget {
   /// - [allImages] is a list of images to display in full-screen view.
   /// - [imgProvider] specifies the image provider type.
   /// - [fit] determines how the image should be inscribed into the widget.
-  /// - [fadeInDuration] specifies the duration for the fade-in effect.
+  /// - [fadeInDuration] specifies the duration for the fade-in effect (async loads only).
   /// - [fadeInCurve] specifies the curve for the fade-in effect.
   /// - [errorWidget] is the widget to display if an error occurs while loading the image.
   /// - [placeHolderWidget] is the widget to display while the image is loading.
@@ -75,29 +75,46 @@ class _AppImageState extends State<AppImage> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
       _precacacheImages();
     });
     super.initState();
   }
 
+  @override
+  void didUpdateWidget(covariant AppImage oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.image != widget.image) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted) return;
+        _precacacheImages();
+      });
+    }
+  }
+
   /// Pre-caches the images to improve loading performance.
   void _precacacheImages() {
-    ImgProvider? provider = getImageProvider(widget.image);
+    final dynamic image = widget.image;
+    if (image == null || image == '') return;
+
+    ImgProvider? provider = getImageProvider(image);
+
+    void ignoreError(Object _, StackTrace? __) {}
 
     if (provider == ImgProvider.networkImage) {
-      precacheImage(NetworkImage(widget.image), context);
+      precacheImage(NetworkImage(image), context, onError: ignoreError);
     }
 
     if (provider == ImgProvider.assetImage) {
-      precacheImage(AssetImage(widget.image), context);
+      precacheImage(AssetImage(image), context, onError: ignoreError);
     }
 
     if (provider == ImgProvider.fileImage) {
-      precacheImage(FileImage(File(widget.image)), context);
+      precacheImage(FileImage(File(image)), context, onError: ignoreError);
     }
 
     if (provider == ImgProvider.memoryImage) {
-      precacheImage(MemoryImage(widget.image), context);
+      precacheImage(MemoryImage(image), context, onError: ignoreError);
     }
   }
 

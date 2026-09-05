@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 /// A widget that applies a fade-in animation to its child widget.
+///
+/// When [fadeInDuration] is zero, the child is shown immediately.
 class FadeInTransition extends StatefulWidget {
   final Widget child;
   final Duration fadeInDuration;
@@ -32,37 +34,36 @@ class FadeInTransitionState extends State<FadeInTransition>
   void initState() {
     super.initState();
 
-    // Initialize the animation controller with the specified duration.
     _controller = AnimationController(
       duration: widget.fadeInDuration,
       vsync: this,
+      value: widget.fadeInDuration == Duration.zero ? 1.0 : 0.0,
     );
 
-    // Create a curved animation with the specified curve.
     _fadeInAnimation = CurvedAnimation(
       parent: _controller,
       curve: widget.fadeInCurve,
     );
 
-    // Start the fade-in animation.
-    _controller.forward();
+    if (widget.fadeInDuration != Duration.zero) {
+      _controller.forward();
+    }
   }
 
   @override
   void dispose() {
-    // Dispose of the animation controller to free up resources.
     _controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    // Apply the fade transition to the child widget.
+    if (widget.fadeInDuration == Duration.zero) {
+      return widget.child;
+    }
+
     return FadeTransition(
-      opacity: Tween<double>(
-        begin: 0.0,
-        end: 1.0,
-      ).animate(_fadeInAnimation),
+      opacity: _fadeInAnimation,
       child: widget.child,
     );
   }

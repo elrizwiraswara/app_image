@@ -1,3 +1,11 @@
+## 1.0.18
+
+- Skip fade-in when the image frame is available synchronously (ImageCache /
+  scroll remount), so list and screen switches no longer blink.
+- Use `frameBuilder` instead of `loadingBuilder` + always-on fade for raster images.
+- Swallow precache errors for missing local files (avoids noisy PathNotFoundException).
+- Re-precache when `image` changes.
+
 ## 1.0.17
 
 - Fix `placeHolderWidget` parameter not being used in `AppImageWidget`
